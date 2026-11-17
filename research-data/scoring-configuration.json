@@ -1,0 +1,101 @@
+{
+  "stage": "4.1 scoring architecture prototype",
+  "status": "prototype; not final rankings",
+  "format_handling": "T20/ IPL and T20I are ranked separately; cross-format aggregation is deferred until sensitivity and eligibility decisions are tested.",
+  "batting_minimum_core_evidence": {
+    "pressure_balls": 60,
+    "pressure_matches": 5,
+    "scoreable_pressure_ball_share_pct": 80,
+    "consistency_matches": 5,
+    "per_match_pressure_balls_for_consistency": 5
+  },
+  "batting_dimensions": {
+    "output": {
+      "weight_within_dimension": 1.0,
+      "metric_mix": {
+        "context_adjusted_pressure_sr_percentile": 0.7,
+        "role_peer_pressure_boundary_rate_percentile": 0.3
+      }
+    },
+    "adaptability": {
+      "metric": "context_adjusted_pressure_vs_normal_delta_percentile"
+    },
+    "risk_control": {
+      "metric": "lower_empirical_bayes_pressure_dismissal_probability_percentile"
+    },
+    "consistency": {
+      "metric": "lower_IQR_of_match_pressure_strike_rate_percentile"
+    }
+  },
+  "batting_weight_scenarios": {
+    "balanced_equal_dimensions": {
+      "output": 0.25,
+      "adaptability": 0.25,
+      "risk_control": 0.25,
+      "consistency": 0.25
+    },
+    "output_led": {
+      "output": 0.4,
+      "adaptability": 0.2,
+      "risk_control": 0.2,
+      "consistency": 0.2
+    },
+    "adaptability_led": {
+      "output": 0.25,
+      "adaptability": 0.4,
+      "risk_control": 0.2,
+      "consistency": 0.15
+    },
+    "risk_control_led": {
+      "output": 0.25,
+      "adaptability": 0.2,
+      "risk_control": 0.4,
+      "consistency": 0.15
+    },
+    "consistency_led": {
+      "output": 0.25,
+      "adaptability": 0.2,
+      "risk_control": 0.15,
+      "consistency": 0.4
+    }
+  },
+  "bowling_minimum_core_evidence": {
+    "death_phase_legal_balls": 36,
+    "death_phase_matches": 5,
+    "consistency_matches": 5,
+    "per_match_death_legal_balls_for_consistency": 6
+  },
+  "bowling_dimensions": {
+    "effectiveness": {
+      "metric_mix": {
+        "all_death_context_adjusted_wicket_rate_percentile": 0.85,
+        "known_boundary_concession_control_percentile": 0.15
+      },
+      "note": "Boundary variable is a partial known-category proxy, not full runs conceded."
+    },
+    "consistency": {
+      "metric": "lower_IQR_of_match_death_wicket_rate_percentile"
+    },
+    "deep_lineup": "Retained as a corroboration/stress test; not separately weighted because it overlaps with all-death exposure. All-death exposure is reconstructed directly from Stage 2 and reconciled to Stage 3.3."
+  },
+  "bowling_weight_scenarios": {
+    "balanced_reference": {
+      "effectiveness": 0.65,
+      "consistency": 0.35
+    },
+    "wicket_threat_led": {
+      "effectiveness": 0.8,
+      "consistency": 0.2
+    },
+    "consistency_led": {
+      "effectiveness": 0.5,
+      "consistency": 0.5
+    }
+  },
+  "non_goals": [
+    "No final combined Top 10 produced.",
+    "No official bowling economy or true dot-ball rate claimed.",
+    "No single cross-format composite until IPL/T20I aggregation is tested.",
+    "No causal claim that pressure causes performance changes."
+  ]
+}

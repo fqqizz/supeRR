@@ -1,0 +1,8 @@
+{
+  "name": "superr-pressure-lab",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SupeRR Selector Season 2 pressure-performance analytics dashboard",
+  "scripts": { "start": "node server.js", "dev": "node server.js", "build:data": "python scripts/build_app_data.py" },
+  "engines": { "node": ">=18" }
+}

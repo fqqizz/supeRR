@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#ffffff" />
+  <meta name="description" content="SupeRR Analytics Pressure Lab: a transparent T20 pressure-performance ranking system for batters and bowlers." />
+  <title>SupeRR Selector Season 2 | Pressure Performance Analysis</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="SupeRR Pressure Lab home">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span class="brand-copy"><b>SupeRR</b><small>PRESSURE PERFORMANCE ANALYSIS</small></span>
+      </a>
+      <div class="workspace-label">SECTIONS</div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <button class="nav-item active" data-view="overview"><span class="nav-icon">◫</span><span>Overview</span><span class="nav-dot"></span></button>
+        <button class="nav-item" data-view="batting"><span class="nav-icon">↗</span><span>Batting index</span></button>
+        <button class="nav-item" data-view="bowling"><span class="nav-icon">⌁</span><span>Bowling index</span></button>
+        <button class="nav-item" data-view="player-lab"><span class="nav-icon">⌕</span><span>Player profiles</span></button>
+        <button class="nav-item" data-view="scenario"><span class="nav-icon">↔</span><span>Scenario testing</span></button>
+        <button class="nav-item" data-view="methodology"><span class="nav-icon">▤</span><span>Methodology</span></button>
+      </nav>
+      <div class="sidebar-spacer"></div>
+      <div class="scope-card">
+        <div class="scope-kicker">DATA SCOPE</div>
+        <strong>IPL 2022–26</strong>
+        <span>+ Men's T20 Internationals</span>
+        <div class="scope-rule"></div>
+        <small>Organizer data pack · Round 1</small>
+      </div>
+      <div class="sidebar-footer"><span class="status-pill">RESEARCH BUILD</span><span class="version">V1.0.0</span></div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="mobile-menu" id="mobile-menu" aria-label="Open menu">☰</button>
+          <div class="breadcrumb"><span>SUpeRR SELECTOR</span><b>/</b><strong id="crumb-current">Overview</strong></div>
+        </div>
+        <div class="topbar-right">
+          <div class="top-search"><span>⌕</span><input id="global-search" type="search" placeholder="Find a player..." autocomplete="off" /><kbd>↵</kbd><div id="global-search-results" class="search-results hidden"></div></div>
+          <span class="top-date">ROUND 1 <b>·</b> NOV 2026</span>
+          <div class="user-avatar" title="Faaiz Qureshi">FQ</div>
+        </div>
+      </header>
+
+      <div class="content-wrap">
+        <section class="view active" id="view-overview">
+          <div class="hero-block">
+            <div class="hero-copy">
+              <div class="eyebrow"><span class="eyebrow-line"></span> SUPERR SELECTOR SEASON 2 · ROUND 1</div>
+              <h1>Pressure-performance<br />analysis</h1>
+              <p>A delivery-level analysis of batting and bowling performance in defined pressure situations, using the supplied IPL and T20I dataset from 2022 onwards.</p>
+              <div class="hero-actions"><button class="btn btn-primary" data-go="batting">Explore the rankings <span>↗</span></button><button class="btn btn-quiet" data-go="methodology">Read the methodology <span>→</span></button></div>
+            </div>
+            <div class="hero-art" aria-hidden="true">
+              <div class="art-ring ring-one"></div><div class="art-ring ring-two"></div><div class="art-ring ring-three"></div>
+              <div class="art-cross cross-a"></div><div class="art-cross cross-b"></div>
+              <div class="art-number">75<span>%</span></div><div class="art-caption">INNINGS<br />PROGRESS</div>
+              <div class="art-chip chip-top">DEATH PHASE</div><div class="art-chip chip-bottom">5+ WICKETS LOST</div>
+            </div>
+          </div>
+
+          <div class="metrics-grid" id="overview-metrics">
+            <div class="metric-card"><div class="metric-label">MATCHES ANALYSED <span>01</span></div><div class="metric-value" id="metric-matches">828</div><div class="metric-foot"><span class="up-mark">↗</span> 364 IPL · 464 T20I</div></div>
+            <div class="metric-card"><div class="metric-label">ELIGIBLE DELIVERIES <span>02</span></div><div class="metric-value" id="metric-deliveries">193,372</div><div class="metric-foot">Regulation innings only</div></div>
+            <div class="metric-card"><div class="metric-label">PRESSURE DELIVERIES <span>03</span></div><div class="metric-value" id="metric-pressure">57,330</div><div class="metric-foot">Death phase OR collapse context</div></div>
+            <div class="metric-card accent-metric"><div class="metric-label">CROSS-FORMAT CANDIDATES <span>04</span></div><div class="metric-value"><span id="metric-batters">13</span><i>/</i><span id="metric-bowlers">62</span></div><div class="metric-foot">Batters / Bowlers meeting both-format rules</div></div>
+          </div>
+
+          <div class="section-heading"><div><div class="eyebrow">FINAL RESULTS</div><h2>Ranked players</h2><p>Official ranks use average position across every tested model and format blend.</p></div><button class="text-link" data-go="batting">View all rankings <span>↗</span></button></div>
+          <div class="overview-leaderboards">
+            <article class="leader-card">
+              <div class="leader-card-head"><div class="leader-title"><span class="round-icon bat-icon">↗</span><div><h3>Batting index</h3><small>TOP 5 · PRESSURE OUTPUT</small></div></div><span class="rank-chip">15 SCENARIOS</span></div>
+              <div id="overview-batters" class="mini-ranking"><div class="skeleton"></div></div>
+              <button class="card-link" data-go="batting">Open batting index <span>→</span></button>
+            </article>
+            <article class="leader-card">
+              <div class="leader-card-head"><div class="leader-title"><span class="round-icon bowl-icon">⌁</span><div><h3>Bowling index</h3><small>TOP 5 · DEATH OVERS</small></div></div><span class="rank-chip">9 SCENARIOS</span></div>
+              <div id="overview-bowlers" class="mini-ranking"><div class="skeleton"></div></div>
+              <button class="card-link" data-go="bowling">Open bowling index <span>→</span></button>
+            </article>
+          </div>
+
+          <div class="bottom-grid">
+            <article class="panel methodology-teaser"><div class="panel-kicker">THE FRAMEWORK</div><h3>Pressure is defined from the state of the innings before each delivery.</h3><p>We label pressure before the delivery, separate batting collapse from time pressure, and compare players against peers in similar roles.</p><button class="btn btn-dark" data-go="methodology">Understand the model <span>→</span></button></article>
+            <article class="panel robustness-panel"><div class="panel-head"><div><div class="panel-kicker">ROBUSTNESS CHECK</div><h3>Ranking sensitivity</h3></div><span class="robust-icon">⌘</span></div><div class="robust-row"><span>Batting</span><div class="robust-track"><i style="width:80%"></i></div><b>8 / 10</b></div><div class="robust-row"><span>Bowling</span><div class="robust-track bowl-track"><i style="width:70%"></i></div><b>7 / 10</b></div><p>Eight of ten batters stayed top ten in every tested setting. Seven of ten bowlers remained top ten in at least eight of nine scenarios.</p><span class="small-note">Stability = share of tested scenarios in which a player remained in the top ten.</span></article>
+          </div>
+          <footer class="page-footer"><span>SupeRR ANALYTICS · PRESSURE LAB</span><span>Independent statistical case study <b>·</b> 17 NOV 2026</span></footer>
+        </section>
+
+        <section class="view" id="view-batting">
+          <div class="page-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> PLAYER PERFORMANCE / 01</div><h1>Batting <em>under pressure.</em></h1><p>Four dimensions. Role-adjusted peer comparisons. Fifteen tested ranking scenarios.</p></div><div class="intro-badge"><span>FINAL CROSS-FORMAT LIST</span><b>10 <small>BATTERS</small></b></div></div>
+          <p class="interaction-explainer">The combined tab shows the official cross-format order. IPL and T20I tabs show the corresponding format-specific score order. Pressure strike rate is runs per 100 pressure balls; stability is the share of tested scenarios in which the player remained in the top ten.</p><div class="filter-bar"><div class="segmented" id="bat-format"><button class="selected" data-format="combined">Combined ranking</button><button data-format="IPL">IPL</button><button data-format="T20I">T20I</button></div><div class="filter-meta" id="bat-basis">Mean rank · 15 scenarios</div></div>
+          <div class="table-panel"><div class="table-top"><div><h3>Ranked batters</h3><p id="bat-count">10 players in the final cross-format shortlist</p></div><div class="table-search"><span>⌕</span><input id="bat-search" placeholder="Search batter" /></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>RANK</th><th>PLAYER</th><th>IPL PRESSURE SR</th><th>T20I PRESSURE SR</th><th>TOP-10 STABILITY</th><th>MEAN RANK</th><th></th></tr></thead><tbody id="bat-table-body"></tbody></table></div><div class="table-foot"><span>Pressure SR = batter runs per 100 balls in the pressure union.</span><span>Rows with format-specific scope use balanced reference score.</span></div></div>
+          <div class="insight-grid"><article class="panel insight-card"><div class="panel-kicker">HOW TO READ THE INDEX</div><h3>Output is only one part of the story.</h3><p>High strike rate alone does not define a pressure performer. The model also rewards adaptability, dismissal-risk control and repeatability across matches.</p></article><article class="panel insight-card accent-insight"><div class="panel-kicker">SAMPLE STANDARD</div><div class="big-stat">60<span>+</span></div><p>Minimum pressure balls in each format, alongside at least five pressure matches and at least 80% scoreable role coverage.</p></article></div>
+        </section>
+
+        <section class="view" id="view-bowling">
+          <div class="page-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> PLAYER PERFORMANCE / 02</div><h1>Bowling in the <em>final overs.</em></h1><p>Death-phase wicket threat, known-boundary control and match-to-match consistency. Pace and spin are compared separately.</p></div><div class="intro-badge bowl-badge"><span>FINAL CROSS-FORMAT LIST</span><b>10 <small>BOWLERS</small></b></div></div>
+          <div class="filter-bar"><div class="segmented" id="bowl-format"><button class="selected" data-format="combined">Combined ranking</button><button data-format="IPL">IPL</button><button data-format="T20I">T20I</button></div><div class="filter-meta" id="bowl-basis">Mean rank · 9 scenarios</div></div>
+          <div class="table-panel"><div class="table-top"><div><h3>Ranked bowlers</h3><p id="bowl-count">10 players in the final cross-format shortlist</p></div><div class="table-search"><span>⌕</span><input id="bowl-search" placeholder="Search bowler" /></div></div><div class="table-scroll"><table class="data-table"><thead><tr><th>RANK</th><th>PLAYER</th><th>TYPE</th><th>IPL WICKETS / BALLS</th><th>T20I WICKETS / BALLS</th><th>TOP-10 STABILITY</th><th></th></tr></thead><tbody id="bowl-table-body"></tbody></table></div><div class="table-foot"><span>Wickets are bowler-credited wickets in death-phase deliveries.</span><span>Boundary control is a partial known-category proxy, not economy rate.</span></div></div>
+          <div class="insight-grid"><article class="panel insight-card"><div class="panel-kicker">BOWLING PRESSURE DEFINITION</div><h3>Death overs are a different assignment.</h3><p>For bowlers, pressure is evaluated in the final 25% of the scheduled innings. In a standard 20-over innings, this means overs 16–20.</p></article><article class="panel insight-card accent-insight"><div class="panel-kicker">SAMPLE STANDARD</div><div class="big-stat">36<span>+</span></div><p>Minimum legal death balls in each format, at least five death-phase matches, and five match observations with six or more legal death balls.</p></article></div>
+        </section>
+
+        <section class="view" id="view-player-lab">
+          <div class="page-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> PLAYER PERFORMANCE / 03</div><h1>Player profiles</h1><p>Look up a player, compare format records, inspect the score components and see how much evidence supports the result.</p></div><div class="intro-badge lab-badge"><span>SEARCH THE PLAYER POOL</span><b>1,618 <small>FORMAT RECORDS</small></b></div></div>
+          <p class="interaction-explainer">Select Batter or Bowler, enter a player name, and open the profile. The profile reports pressure exposure, format-specific output, model components and evidence support. A missing format record means the player did not meet that format’s eligibility rules.</p><div class="lab-search-panel panel"><div class="field-group"><label for="lab-type">PLAYER CATEGORY</label><select id="lab-type"><option value="batting">Batter</option><option value="bowling">Bowler</option></select></div><div class="field-group grow"><label for="lab-search">PLAYER NAME</label><div class="input-with-icon"><span>⌕</span><input id="lab-search" placeholder="Start typing a player's name..." autocomplete="off" /><div id="lab-suggestions" class="suggestions hidden"></div></div></div><button id="lab-find" class="btn btn-primary">Analyse player <span>↗</span></button></div>
+          <div id="player-profile" class="player-profile empty-state"><div class="empty-icon">◎</div><h3>Choose a player to begin</h3><p>Search the player pool to open a format-by-format performance profile.</p><div class="quick-picks" id="quick-picks"></div></div>
+        </section>
+
+        <section class="view" id="view-scenario">
+          <div class="page-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> MODEL TESTING / 04</div><h1>Scenario testing</h1><p>Adjust the component weights and format blend to examine how a custom set of assumptions changes the eligible player order. This does not change the official rankings.</p></div><div class="intro-badge scenario-badge"><span>INTERACTIVE MODEL</span><b>LIVE <small>RECALCULATION</small></b></div></div>
+          <p class="interaction-explainer">Use the controls below to run a sensitivity test. Choose the discipline and ranking scope first. If both formats are selected, choose a blend. Set the component weights, then select Recalculate rankings. Weights are normalised to total 100%. The result table shows the custom composite and format scores.</p><div class="scenario-layout"><div class="panel scenario-controls"><div class="panel-head"><div><div class="panel-kicker">INPUTS</div><h3>Scenario assumptions</h3></div><span class="settings-icon">⚙</span></div><div class="field-group"><label for="scenario-type">PLAYER CATEGORY</label><select id="scenario-type"><option value="batting">Batting model</option><option value="bowling">Bowling model</option></select></div><div class="field-group"><label for="scenario-format">RANKING SCOPE</label><select id="scenario-format"><option value="combined">Both formats (eligible in both)</option><option value="IPL">IPL only</option><option value="T20I">T20I only</option></select></div><div class="field-group" id="blend-group"><label for="scenario-blend">CROSS-FORMAT BLEND</label><select id="scenario-blend"><option value="ipl70">IPL priority · 70 / 30</option><option value="equal">Equal weight · 50 / 50</option><option value="evidence">Exposure weighted · capped 30–70</option></select></div><div class="weight-head"><span>SCORING DIMENSIONS</span><small>Weights auto-normalise to 100%</small></div><div id="weight-controls"></div><div class="weight-total"><span>TOTAL WEIGHT</span><b id="weight-total-value">100%</b></div><button id="run-scenario" class="btn btn-primary wide-btn">Recalculate rankings <span>↗</span></button><button id="reset-scenario" class="btn btn-quiet wide-btn">Reset to balanced model</button><p class="scenario-disclaimer">Calculation: component percentiles are combined using the weights entered above. For a combined view, IPL and T20I scores are blended using the selected format proportions. The results are a custom scenario, not the official list. Official rankings remain the mean rank across 15 batting scenarios or 9 bowling scenarios.</p></div><div class="panel scenario-results"><div class="panel-head"><div><div class="panel-kicker">CUSTOM SCENARIO RESULTS</div><h3 id="scenario-result-title">Custom ranking</h3></div><span class="live-tag"><i></i> READY</span></div><div id="scenario-status" class="scenario-status">Adjust the scoring weights, then recalculate to see the top ten.</div><div class="table-scroll"><table class="data-table"><thead><tr><th>RANK</th><th>PLAYER</th><th>COMPOSITE</th><th>IPL SCORE</th><th>T20I SCORE</th></tr></thead><tbody id="scenario-table-body"><tr><td colspan="5" class="table-empty">Your custom ranking will appear here.</td></tr></tbody></table></div><div class="scenario-note"><b>Important:</b> Format-specific component percentiles are relative peer positions. A composite score is a ranking aid, not the probability of future performance.</div></div></div>
+        </section>
+
+        <section class="view" id="view-methodology">
+          <div class="page-intro"><div><div class="eyebrow"><span class="eyebrow-line"></span> RESEARCH NOTE / 05</div><h1>Methodology</h1><p>Definitions, calculations, eligibility rules, ranking procedure and limitations used in this analysis.</p></div><a class="btn btn-primary download-btn" href="/reports/SupeRR_Pressure_Methodology_Report.pdf" target="_blank" rel="noopener">Download full PDF <span>↓</span></a><a class="text-link" href="/methodology.html">Open HTML methodology ↗</a></div>
+          <p class="interaction-explainer">The sections below describe the calculations used to produce the final lists. The downloadable report gives the full written methodology and player evidence.</p><div class="method-lead panel"><div class="method-index">01</div><div><div class="panel-kicker">CORE PRESSURE DEFINITION</div><h2>Pressure definition</h2><p>For batting, a delivery is labelled pressure when at least 75% of scheduled legal balls have elapsed or five or more wickets have already fallen before the delivery. The two conditions are combined as a union. For bowling, the analysis evaluates the death phase only. The label is based on pre-delivery information.</p></div></div>
+          <div class="method-grid">
+            <article class="panel method-card"><div class="method-number">02</div><div class="panel-kicker">BATTER MODEL</div><h3>Four weighted components.</h3><ul><li><b>Output:</b> 70% adjusted pressure strike-rate percentile + 30% pressure boundary-ball-rate percentile.</li><li><b>Adaptability:</b> adjusted pressure-minus-normal strike-rate percentile.</li><li><b>Risk control:</b> inverse percentile of empirical-Bayes dismissal probability.</li><li><b>Consistency:</b> inverse percentile of match-level pressure strike-rate IQR.</li></ul><div class="formula-strip">Balanced score = 25% × (Output + Adaptability + Risk + Consistency)</div></article>
+            <article class="panel method-card"><div class="method-number">03</div><div class="panel-kicker">BOWLER MODEL</div><h3>Death-phase effectiveness and consistency.</h3><ul><li><b>Effectiveness:</b> 85% adjusted death wicket-rate percentile + 15% known boundary-event control percentile.</li><li><b>Consistency:</b> inverse percentile of match-level death wicket-rate IQR.</li><li><b>Peer groups:</b> format × Pace/Spin.</li><li><b>Deep-lineup test:</b> retained as corroboration, not a second weighted signal.</li></ul><div class="formula-strip">Balanced score = 65% × Effectiveness + 35% × Consistency</div></article>
+            <article class="panel method-card"><div class="method-number">04</div><div class="panel-kicker">CONTEXT NORMALISATION</div><h3>Compare like with like.</h3><p>Batters are grouped by observed position: 1–2, 3–4, 5–7 and 8–11. Extended 12+ positions are descriptive only. Bowlers are grouped by Pace/Spin. Competition-season benchmarks are used only with at least 120 pressure balls or legal death balls, 10 players and 3 matches; otherwise the broader format-role benchmark is used. The player is excluded from its own peer reference.</p><div class="formula-strip">Adjusted rate = raw player rate × leave-one-out format-role rate ÷ leave-one-out environment-role rate</div></article>
+            <article class="panel method-card"><div class="method-number">05</div><div class="panel-kicker">RELIABILITY</div><h3>Minimum evidence and uncertainty.</h3><p>Empirical-Bayes shrinkage pulls unstable rates toward the format prior. Match-cluster bootstrap intervals are retained as uncertainty evidence. Eligibility gates apply separately in each format.</p><div class="thresholds"><span>BATTER <b>60+ balls</b></span><span>BOWLER <b>36+ legal balls</b></span></div></article>
+            <article class="panel method-card"><div class="method-number">06</div><div class="panel-kicker">CROSS-FORMAT RANKING</div><h3>Three format-blending assumptions.</h3><p>Only players who meet the evidence rules in both IPL and T20I are eligible for the final combined list. Format scores are blended under equal, IPL-priority and evidence-weighted approaches.</p><div class="blend-tags"><span>50 / 50</span><span>70 / 30</span><span>Exposure weighted</span></div></article>
+            <article class="panel method-card"><div class="method-number">07</div><div class="panel-kicker">FINAL ORDER</div><h3>Mean rank across tested scenarios.</h3><p>Batting uses five dimension-weight configurations × three format blends = 15 scenarios. Bowling uses three configurations × three blends = 9 scenarios. Final order is the mean scenario rank; stability is the proportion of scenarios in which the player remained top ten.</p><div class="formula-strip">Stability = Top-10 appearances ÷ Total scenarios</div></article>
+          </div>
+          <div class="panel source-panel"><div><div class="panel-kicker">DATASET & VALIDATION</div><h3>Built from the organiser's ball-by-ball data.</h3><p>Final scope includes IPL seasons 2022–2026 and T20I matches only. Other domestic T20 competitions are excluded from the primary ranking.</p></div><div class="source-stats"><div><b>828</b><span>matches</span></div><div><b>193,372</b><span>eligible deliveries</span></div><div><b>57,330</b><span>pressure deliveries</span></div></div></div>
+          <div class="limits-panel"><div class="panel-kicker">WHAT THIS MODEL DOES NOT CLAIM</div><div class="limit-grid"><p><b>No exact required run rate.</b> Current score, score margin and required run rate are not reconstructed because extras data is incomplete.</p><p><b>No official bowling economy.</b> Known batter-boundary events are only a partial control proxy, not total runs conceded or true dot-ball rate.</p><p><b>No future prediction.</b> Percentile scores are relative to observed peers; they are not probabilities, causal effects or guaranteed future performance.</p><p><b>No auction recommendation.</b> These are historical pressure-performance rankings only. Availability and franchise fit are outside this Round 1 question.</p></div></div>
+          <footer class="page-footer"><span>DATA SCOPE: IPL 2022–2026 + T20I</span><span>METHOD VERSION 1.0 <b>·</b> 17 NOV 2026</span></footer>
+        </section>
+      </div>
+    </main>
+  </div>
+  <div id="toast" class="toast" role="status"></div>
+  <script src="/app.js" defer></script>
+</body>
+</html>

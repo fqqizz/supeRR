@@ -1,0 +1,21 @@
+{
+  "batting_role_score_rows": 1616,
+  "batting_player_format_rows": 1006,
+  "batting_core_sample_candidates": 254,
+  "batting_rank_eligible_player_formats": 117,
+  "batting_rank_eligible_T20": 54,
+  "batting_rank_eligible_T20I": 63,
+  "bowling_player_format_death_rows": 612,
+  "bowling_all_death_legal_ball_reconciliation_max_abs_diff": 0,
+  "bowling_all_death_wicket_reconciliation_max_abs_diff": 0,
+  "bowling_core_sample_candidates": 273,
+  "bowling_rank_eligible_player_formats": 272,
+  "bowling_rank_eligible_T20": 113,
+  "bowling_rank_eligible_T20I": 159,
+  "batting_T20_T20I_overlap": 13,
+  "bowling_T20_T20I_overlap": 62,
+  "batting_scores_outside_0_100": 0,
+  "bowling_scores_outside_0_100": 0,
+  "batting_duplicate_player_format_rows": 0,
+  "bowling_duplicate_player_format_rows": 0
+}
